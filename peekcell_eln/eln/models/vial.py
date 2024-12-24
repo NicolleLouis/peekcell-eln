@@ -7,6 +7,11 @@ class Vial(models.Model):
         on_delete=models.PROTECT,
         null=True,
     )
+    storage = models.ForeignKey(
+        'Storage',
+        on_delete=models.PROTECT,
+        null=True,
+    )
     volume = models.IntegerField(default=0)
 
     def __str__(self):
@@ -16,12 +21,13 @@ class Vial(models.Model):
 class SampleAdmin(admin.ModelAdmin):
     list_display = (
         'sample',
-        'volume',
+        'storage',
     )
     search_fields = (
         'id',
     )
     list_filter = [
         'sample',
+        'storage',
     ]
     ordering = ('id',)

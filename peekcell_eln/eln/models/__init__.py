@@ -3,3 +3,4 @@ from .hospital import *
 from .person import *
 from .sample import *
 from .vial import *
+from .storage import *
