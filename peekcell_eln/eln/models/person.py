@@ -15,6 +15,7 @@ class Person(models.Model):
         on_delete=models.PROTECT,
         null=True,
     )
+    is_test = models.BooleanField(default=False)
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
@@ -24,7 +25,9 @@ class Person(models.Model):
 class PersonAdmin(admin.ModelAdmin):
     list_display = (
         'first_name',
-        'last_name'
+        'last_name',
+        'is_test',
+        'hospital',
     )
     search_fields = (
         'first_name',
@@ -32,6 +35,7 @@ class PersonAdmin(admin.ModelAdmin):
     )
     list_filter = [
         'hospital',
-        'clinical_study'
+        'clinical_study',
+        'is_test',
     ]
     ordering = ('last_name',)
