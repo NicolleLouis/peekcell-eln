@@ -24,6 +24,7 @@ class Person(models.Model):
 @admin.register(Person)
 class PersonAdmin(admin.ModelAdmin):
     list_display = (
+        'id',
         'first_name',
         'last_name',
         'is_test',

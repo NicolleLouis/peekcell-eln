@@ -4,6 +4,7 @@ from django.db import models
 class Vial(models.Model):
     sample = models.ForeignKey(
         'Sample',
+        related_name='vials',
         on_delete=models.PROTECT,
         null=True,
     )

@@ -7,6 +7,7 @@ from eln.models.choices.sample_type import SampleType
 class Sample(models.Model):
     person = models.ForeignKey(
         'Person',
+        related_name='samples',
         on_delete=models.PROTECT,
         null=True,
     )
