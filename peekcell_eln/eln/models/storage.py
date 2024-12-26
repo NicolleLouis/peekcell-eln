@@ -13,6 +13,7 @@ class Storage(models.Model):
 class StorageAdmin(admin.ModelAdmin):
     list_display = (
         'label',
+        'id',
     )
     search_fields = (
         'label',

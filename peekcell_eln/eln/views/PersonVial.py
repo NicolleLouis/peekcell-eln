@@ -1,7 +1,7 @@
 from rest_framework.generics import RetrieveAPIView
 
 from eln.models import Person
-from eln.serializers.person import PersonSerializer
+from eln.serializers.models.person import PersonSerializer
 
 
 class PersonVialView(RetrieveAPIView):

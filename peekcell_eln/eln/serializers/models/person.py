@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from eln.models import Person
-from eln.serializers.sample import SampleSerializer
+from eln.serializers.models.sample import SampleSerializer
 
 
 class PersonSerializer(serializers.ModelSerializer):

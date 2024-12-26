@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from eln.models import Sample
-from eln.serializers.vial import VialSerializer
+from eln.serializers.models.vial import VialSerializer
 
 
 class SampleSerializer(serializers.ModelSerializer):

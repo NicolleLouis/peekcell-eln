@@ -3,7 +3,7 @@ from rest_framework.response import Response
 
 from eln.models import ProductName
 from eln.models.analytic.product import ProductAnalytics
-from eln.serializers.product_analytic import ProductAnalyticSerializer
+from eln.serializers.analytics.product import ProductAnalyticSerializer
 
 
 class ProductAnalyticView(APIView):
