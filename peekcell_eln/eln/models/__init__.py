@@ -1,4 +1,5 @@
 from .clinical_study import *
+from .experiment import *
 from .hospital import *
 from .person import *
 from .product import *
