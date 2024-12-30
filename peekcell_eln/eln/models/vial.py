@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.db import models
 
+
 class Vial(models.Model):
     label = models.CharField(
         max_length=255,
@@ -31,6 +32,7 @@ class Vial(models.Model):
 
 @admin.register(Vial)
 class SampleAdmin(admin.ModelAdmin):
+    readonly_fields = ('experiments_list',)
     list_display = (
         'label',
         'sample',
@@ -48,3 +50,7 @@ class SampleAdmin(admin.ModelAdmin):
         'created_at',
     ]
     ordering = ('id',)
+
+    @admin.display(description="Experiments list")
+    def experiments_list(self, obj):
+        return ", ".join([str(experiment) for experiment in obj.experiments.all()])

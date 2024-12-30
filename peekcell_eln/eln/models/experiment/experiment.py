@@ -9,7 +9,7 @@ class Experiment(models.Model):
     )
 
     def __str__(self):
-        return f"Experiment: {self.vial} - {self.created_at}"
+        return f"Experiment: {self.created_at.strftime("%Y-%m-%d")}"
 
 @admin.register(Experiment)
 class ExperimentAdmin(admin.ModelAdmin):
@@ -22,6 +22,7 @@ class ExperimentAdmin(admin.ModelAdmin):
         'id',
     )
     ordering = ('created_at',)
+    filter_horizontal = ('vial',)
 
     @admin.display(description="Experiment Type")
     def get_experience_type(self, obj):

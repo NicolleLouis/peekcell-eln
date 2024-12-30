@@ -9,7 +9,7 @@ from eln.serializers.api.vial_creation import VialCreationSerializer
 from eln.serializers.models.vial import VialSerializer
 
 
-class VialBatchCreateView(APIView):
+class VialSampleCreateView(APIView):
     def post(self, request, sample_id):
         serializer = VialCreationSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
@@ -18,12 +18,12 @@ class VialBatchCreateView(APIView):
         try:
             sample = Sample.objects.get(id=sample_id)
         except Sample.DoesNotExist:
-            return Response(status=status.HTTP_404_NOT_FOUND)
+            return Response({"detail": "Sample not found"}, status=status.HTTP_404_NOT_FOUND)
 
         try:
             storage = Storage.objects.get(id=data['storage_id'])
         except Storage.DoesNotExist:
-            return Response({"detail": "Storage not found."}, status=status.HTTP_404_NOT_FOUND)
+            return Response({"detail": "Storage not found"}, status=status.HTTP_404_NOT_FOUND)
 
         with transaction.atomic():
             vials = [
