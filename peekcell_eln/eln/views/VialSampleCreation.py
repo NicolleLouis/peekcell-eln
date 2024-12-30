@@ -1,3 +1,4 @@
+from drf_spectacular.utils import extend_schema
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -10,6 +11,12 @@ from eln.serializers.models.vial import VialSerializer
 
 
 class VialSampleCreateView(APIView):
+    serializer_class = VialCreationSerializer
+
+    @extend_schema(
+        request=VialCreationSerializer,
+        responses=VialSerializer,
+    )
     def post(self, request, sample_id):
         serializer = VialCreationSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)

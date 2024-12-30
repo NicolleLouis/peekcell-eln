@@ -7,6 +7,8 @@ from eln.serializers.analytics.product import ProductAnalyticSerializer
 
 
 class ProductAnalyticView(APIView):
+    serializer_class = ProductAnalyticSerializer
+
     def get(self, request):
         data = []
         for product_key, product_label in ProductName.choices:
