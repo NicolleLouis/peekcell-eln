@@ -3,10 +3,9 @@ from django.contrib import admin
 
 class Experiment(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
-    vial = models.ForeignKey(
+    vial = models.ManyToManyField(
         'Vial',
         related_name='experiments',
-        on_delete=models.PROTECT,
     )
 
     def __str__(self):
@@ -15,13 +14,11 @@ class Experiment(models.Model):
 @admin.register(Experiment)
 class ExperimentAdmin(admin.ModelAdmin):
     list_display = (
-        'vial',
         'get_experience_type',
         'created_at',
         'id',
     )
     search_fields = (
-        'vial',
         'id',
     )
     ordering = ('created_at',)

@@ -13,13 +13,11 @@ class ExperimentFilter(Experiment):
 @admin.register(ExperimentFilter)
 class ExperimentFilterAdmin(admin.ModelAdmin):
     list_display = (
-        'vial',
         'filter_size',
         'created_at',
         'id',
     )
     search_fields = (
-        'vial',
         'id',
     )
     ordering = ('created_at',)

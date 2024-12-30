@@ -28,6 +28,7 @@ class VialBatchCreateView(APIView):
         with transaction.atomic():
             vials = [
                 Vial(
+                    label=sample.label,
                     sample=sample,
                     volume=data['volume'],
                     storage=storage,
