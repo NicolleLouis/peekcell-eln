@@ -15,4 +15,3 @@ class ProductName(models.TextChoices):
     MIRCURY_LNA_RT_KIT = 'mircury_lna_rt_kit', 'miRCURY LNA RT Kit'
     MIRCURY_LNA_PCR_KIT = 'mircury_lna_pcr_kit', 'miRCURY LNA PCR Kit'
     SPIKE_IN_KIT  = 'spike_in_kit', 'Spike-in Kit'
-    PRIMER = 'primer', 'Primer'

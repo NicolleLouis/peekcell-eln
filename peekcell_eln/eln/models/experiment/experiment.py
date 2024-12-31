@@ -18,9 +18,9 @@ class Experiment(models.Model):
 @admin.register(Experiment)
 class ExperimentAdmin(admin.ModelAdmin):
     list_display = (
+        'id',
         'get_experience_type',
         'created_at',
-        'id',
     )
     search_fields = (
         'id',
@@ -32,4 +32,12 @@ class ExperimentAdmin(admin.ModelAdmin):
     def get_experience_type(self, obj):
         if hasattr(obj, 'experimentfilter'):
             return "Filter"
+        if hasattr(obj, 'experimentcentrifugation'):
+            return "Centrifugation"
+        if hasattr(obj, 'experimentrnaextraction'):
+            return "RNA Extraction"
+        if hasattr(obj, 'experimentreversetranscriptase'):
+            return "Reverse Transcriptase"
+        if hasattr(obj, 'experimentqpcr'):
+            return "qPCR"
         return "Unknown"

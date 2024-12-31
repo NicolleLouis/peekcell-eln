@@ -142,3 +142,7 @@ SPECTACULAR_SETTINGS = {
     'DESCRIPTION': 'API Documentation for Peekcell ELN.',
     'VERSION': '1.0.0',
 }
+
+# API
+
+BASE_URL = 'http://localhost:8000/eln/'

@@ -4,17 +4,18 @@ from django.contrib import admin
 from eln.models.experiment.experiment import Experiment
 
 
-class ExperimentFilter(Experiment):
-    filter_size = models.DecimalField(max_digits=5, decimal_places=2)
+class ExperimentQPCR(Experiment):
+    primer = models.ManyToManyField(
+        'Primer',
+    )
 
     def __str__(self):
-        return f"Filter: {self.created_at}"
+        return f"QPCR: {self.created_at}"
 
-@admin.register(ExperimentFilter)
-class ExperimentFilterAdmin(admin.ModelAdmin):
+@admin.register(ExperimentQPCR)
+class ExperimentQPCRAdmin(admin.ModelAdmin):
     list_display = (
         'id',
-        'filter_size',
         'created_at',
     )
     search_fields = (
