@@ -8,7 +8,7 @@ class ExperimentFilter(Experiment):
     filter_size = models.DecimalField(max_digits=5, decimal_places=2)
 
     def __str__(self):
-        return f"Filter: {self.vial} - {self.created_at}"
+        return f"Filter: {self.created_at}"
 
 @admin.register(ExperimentFilter)
 class ExperimentFilterAdmin(admin.ModelAdmin):

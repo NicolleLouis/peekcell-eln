@@ -14,6 +14,7 @@ class Person(models.Model):
         'ClinicalStudy',
         on_delete=models.PROTECT,
         null=True,
+        blank=True,
     )
     is_test = models.BooleanField(default=False)
 

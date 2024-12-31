@@ -7,6 +7,10 @@ class Experiment(models.Model):
         'Vial',
         related_name='experiments',
     )
+    comment = models.CharField(
+        max_length=255,
+        null=True,
+    )
 
     def __str__(self):
         return f"Experiment: {self.created_at.strftime("%Y-%m-%d")}"

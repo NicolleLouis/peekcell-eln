@@ -29,6 +29,7 @@ class Sample(models.Model):
     def __str__(self):
         return f"Sample: {self.label} ({self.type})"
 
+
 @admin.register(Sample)
 class SampleAdmin(admin.ModelAdmin):
     list_display = (
