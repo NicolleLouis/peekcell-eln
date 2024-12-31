@@ -30,6 +30,9 @@ class ExperimentReverseTranscriptase(Experiment):
         help_text="µL",
         default=2,
     )
+    contain_spike_in = models.BooleanField(
+        default=True
+    )
 
     def __str__(self):
         return f"ReverseTranscriptase: {self.created_at}"
@@ -43,9 +46,14 @@ class ExperimentReverseTranscriptaseAdmin(admin.ModelAdmin):
         'dilution_rna_volume',
         'dilution_water_volume',
         'input_volume',
+        'contain_spike_in',
         'created_at',
     )
     search_fields = (
         'id',
     )
+    list_filter = [
+        'kit',
+        'contain_spike_in',
+    ]
     ordering = ('created_at',)

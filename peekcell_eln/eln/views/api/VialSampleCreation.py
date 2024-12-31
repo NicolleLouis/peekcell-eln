@@ -8,6 +8,7 @@ from django.db import transaction
 from eln.models import Sample, Vial, Storage
 from eln.serializers.api.vial_creation import VialCreationSerializer
 from eln.serializers.models.vial import VialSerializer
+from eln.services.alphabetical import AlphabeticalService
 
 
 class VialSampleCreateView(APIView):
@@ -35,13 +36,13 @@ class VialSampleCreateView(APIView):
         with transaction.atomic():
             vials = [
                 Vial(
-                    label=sample.label,
+                    label=f"{sample.label}{AlphabeticalService.int_to_capital_letter(index)}",
                     sample=sample,
                     volume=data['volume'],
                     storage=storage,
                     is_sediment=data['is_sediment'],
                 )
-                for _ in range(data['number'])
+                for index in range(data['number'])
             ]
             vials = Vial.objects.bulk_create(vials)
 

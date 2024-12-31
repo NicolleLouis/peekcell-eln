@@ -8,6 +8,7 @@ class Sample(models.Model):
     label = models.CharField(
         max_length=255,
         null=True,
+        unique=True,
     )
     person = models.ForeignKey(
         'Person',

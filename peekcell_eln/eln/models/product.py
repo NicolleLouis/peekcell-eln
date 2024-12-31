@@ -19,7 +19,6 @@ class ProductAdmin(admin.ModelAdmin):
     list_display = (
         'id',
         'name',
-        'type',
         'status',
     )
     search_fields = (
@@ -28,7 +27,6 @@ class ProductAdmin(admin.ModelAdmin):
     list_filter = [
         'name',
         'status',
-        'type',
     ]
     ordering = ('id',)
     actions = [open_products, close_products]

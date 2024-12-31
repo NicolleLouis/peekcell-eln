@@ -6,6 +6,7 @@ class Vial(models.Model):
     label = models.CharField(
         max_length=255,
         null=True,
+        unique=True,
     )
     sample = models.ForeignKey(
         'Sample',

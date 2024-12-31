@@ -2,15 +2,9 @@ from django.db import models
 from django.utils.timezone import now
 
 from eln.models.choices.product_status import ProductStatus
-from eln.models.choices.product_type import ProductType
 
 
 class Consumable(models.Model):
-    type = models.CharField(
-        max_length=6,
-        choices=ProductType.choices,
-        default=ProductType.KIT
-    )
     status = models.CharField(
         max_length=8,
         choices=ProductStatus.choices,
