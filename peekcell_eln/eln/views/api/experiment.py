@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from eln.models import Experiment
-from eln.serializers.models.experiment import ExperimentSerializer
+from eln.serializers.models.experiment.base import ExperimentSerializer
 
 
 class ExperimentView(APIView):
