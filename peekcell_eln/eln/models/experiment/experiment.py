@@ -10,16 +10,31 @@ class Experiment(models.Model):
     comment = models.CharField(
         max_length=255,
         null=True,
+        blank=True,
     )
 
     def __str__(self):
         return f"Experiment: {self.created_at.strftime("%Y-%m-%d")}"
 
+    @property
+    def experience_type(self):
+        if hasattr(self, 'experimentfilter'):
+            return "Filter"
+        if hasattr(self, 'experimentcentrifugation'):
+            return "Centrifugation"
+        if hasattr(self, 'experimentrnaextraction'):
+            return "RNA Extraction"
+        if hasattr(self, 'experimentreversetranscriptase'):
+            return "Reverse Transcriptase"
+        if hasattr(self, 'experimentqpcr'):
+            return "qPCR"
+        return "Unknown"
+
 @admin.register(Experiment)
 class ExperimentAdmin(admin.ModelAdmin):
     list_display = (
         'id',
-        'get_experience_type',
+        'experience_type',
         'created_at',
     )
     search_fields = (
@@ -27,17 +42,3 @@ class ExperimentAdmin(admin.ModelAdmin):
     )
     ordering = ('created_at',)
     filter_horizontal = ('vial',)
-
-    @admin.display(description="Experiment Type")
-    def get_experience_type(self, obj):
-        if hasattr(obj, 'experimentfilter'):
-            return "Filter"
-        if hasattr(obj, 'experimentcentrifugation'):
-            return "Centrifugation"
-        if hasattr(obj, 'experimentrnaextraction'):
-            return "RNA Extraction"
-        if hasattr(obj, 'experimentreversetranscriptase'):
-            return "Reverse Transcriptase"
-        if hasattr(obj, 'experimentqpcr'):
-            return "qPCR"
-        return "Unknown"
