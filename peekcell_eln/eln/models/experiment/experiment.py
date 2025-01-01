@@ -30,6 +30,13 @@ class Experiment(models.Model):
             return "qPCR"
         return "Unknown"
 
+    def get_vial_labels(self):
+        return ', '.join([vial.label for vial in self.vial.all()])
+
+    @property
+    def readable_created_at(self):
+        return self.created_at.strftime("%Y-%m-%d")
+
 @admin.register(Experiment)
 class ExperimentAdmin(admin.ModelAdmin):
     list_display = (
