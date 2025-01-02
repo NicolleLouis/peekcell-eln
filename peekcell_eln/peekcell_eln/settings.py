@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'eln.apps.ElnConfig',
     'django_tables2',
     'django_bootstrap5',
+    'crispy_forms',
+    'crispy_bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -147,3 +149,7 @@ SPECTACULAR_SETTINGS = {
 # API
 
 BASE_URL = 'http://localhost:8000/eln'
+
+# Crispy forms settings
+
+CRISPY_TEMPLATE_PACK = 'bootstrap5'

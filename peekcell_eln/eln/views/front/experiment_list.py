@@ -1,6 +1,5 @@
 from django.utils.html import format_html
-from django_tables2 import tables, SingleTableView, A, Column
-from django_tables2.columns import LinkColumn
+from django_tables2 import tables, SingleTableView, Column
 
 from eln.models import Experiment
 
@@ -22,11 +21,6 @@ class ExperimentTable(tables.Table):
         model = Experiment
         template_name = "django_tables2/bootstrap5.html"
         fields = (
-            "readable_created_at",
-            "experience_type",
-            "custom_link",
-        )
-        sequence = (
             "readable_created_at",
             "experience_type",
             "vial_labels",

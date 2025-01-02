@@ -60,7 +60,7 @@ class VialSplittingCreateView(APIView):
                     sample=vial.sample,
                     volume=data['volume'],
                     storage=storage,
-                    is_sediment=data['is_sediment'],
+                    is_sediment=False,
                 )
                 for index in range(data['number'])
             ]
