@@ -1,6 +1,7 @@
 ## Todo:
 
-- Form to create experiment(s)
 - Form to create vial *2
-- Page detail of vial (list experiments)
+- Homepage
+- Form to create experiment(s)
 - Add the User system
+- Page detail of vial (list experiments)

@@ -19,7 +19,6 @@ class Primer(Consumable):
 @admin.register(Primer)
 class PrimerAdmin(admin.ModelAdmin):
     list_display = (
-        'id',
         'name',
         'status',
     )
