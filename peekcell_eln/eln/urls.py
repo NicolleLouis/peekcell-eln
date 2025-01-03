@@ -7,6 +7,7 @@ from eln.views.api.product_analytic import ProductAnalyticView
 from eln.views.api.vial_sample_creation import VialSampleCreateView
 from eln.views.api.vial_splitting_creation import VialSplittingCreateView
 from eln.views.front.experiment_list import ExperimentList
+from eln.views.front.home import home
 from eln.views.front.product_analytics import ProductAnalyticsView
 from eln.views.front.sample_list import SampleList
 from eln.views.front.vial_sample_creation import vial_sample_creation
@@ -18,8 +19,9 @@ urlpatterns = [
     path('api/product-analytics/', ProductAnalyticView.as_view(), name='api/product-analytics'),
     path('api/samples/<int:sample_id>/vials/', VialSampleCreateView.as_view(), name='vial-sample-create'),
     path('api/vials/<int:vial_id>/split/', VialSplittingCreateView.as_view(), name='vial-split-create'),
-    path('experiments/', ExperimentList.as_view()),
-    path('samples/', SampleList.as_view()),
+    path('experiments/', ExperimentList.as_view(), name='experiments'),
+    path('samples/', SampleList.as_view(), name='samples'),
     path('product-analytics/', ProductAnalyticsView.as_view(), name='product-analytics'),
     path('samples/<int:sample_id>/vials/create/', vial_sample_creation, name="vial_sample_creation"),
+    path('', home, name='home'),
 ]

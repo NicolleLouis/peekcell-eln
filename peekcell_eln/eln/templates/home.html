@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Peekcell ELN{% endblock %}
+
+{% block content %}
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Bienvenue dans l'ELN de Peekcell Madame Bridlance</h1>
+        <p class="text-center">Utilisez les liens ci-dessous pour naviguer entre les différentes sections.</p>
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Product Analytics</h5>
+                        <p class="card-text">Stock des produits.</p>
+                        <a href="{% url 'product-analytics' %}" class="btn btn-primary">Accéder</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Experiments</h5>
+                        <p class="card-text">Liste historique des expériences.</p>
+                        <a href="{% url 'experiments' %}" class="btn btn-primary">Accéder</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Samples</h5>
+                        <p class="card-text">Gérer les échantillons patients.</p>
+                        <a href="{% url 'samples' %}" class="btn btn-primary">Accéder</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}
