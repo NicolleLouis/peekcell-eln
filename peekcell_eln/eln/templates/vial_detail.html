@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% load render_table from django_tables2 %}
+
+{% block title %}vial detail{% endblock %}
+
+{% block content %}
+<h2>vial Detail</h2>
+<div class="card mb-4">
+    <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <strong>Label:</strong> {{ vial.label }}
+            </li>
+            <li class="list-group-item">
+                <strong>Volume:</strong> {{ vial.volume }} mL
+            </li>
+            <li class="list-group-item">
+                <strong>Sediment:</strong> {{ vial.is_sediment }}
+            </li>
+            <li class="list-group-item">
+                <strong>Storage:</strong> {{ vial.storage }}
+            </li>
+        </ul>
+    </div>
+</div>
+
+{% render_table table %}
+
+<div class="text-center mt-4">
+    <a href="/eln/" class="btn btn-primary">Home</a>
+</div>
+{% endblock %}

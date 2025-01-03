@@ -20,7 +20,7 @@ def vial_sample_creation(request, sample_id):
             if response.status_code == 201:
                 created_vials = response.json()
                 table = VialTable(created_vials)
-                return render(request, "vial_list.html", {"table": table})
+                return render(request, "vial_created.html", {"table": table})
             else:
                 form.add_error(None, "Failed to create vials.")
     else:

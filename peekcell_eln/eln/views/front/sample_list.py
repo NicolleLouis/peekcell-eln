@@ -6,12 +6,21 @@ from eln.models import Sample
 
 class SampleTable(tables.Table):
     vial_creation_link = Column(empty_values=(), verbose_name="Create Vials")
+    sample_details = Column(empty_values=(), verbose_name="Details")
 
     # noinspection PyMethodMayBeStatic
     def render_vial_creation_link(self, record):
         url = f"/eln/samples/{record.id}/vials/create"
         return format_html(
             '<a href="{}" class="btn btn-sm btn-primary">Create</a>',
+            url,
+        )
+
+    # noinspection PyMethodMayBeStatic
+    def render_sample_details(self, record):
+        url = f"/eln/samples/{record.id}/"
+        return format_html(
+            '<a href="{}" class="btn btn-sm btn-primary">Details</a>',
             url,
         )
 
@@ -22,6 +31,7 @@ class SampleTable(tables.Table):
             "label",
             "type",
             "storage",
+            "sample_details",
             "vial_creation_link",
         )
 
